@@ -1,30 +1,38 @@
 import { apiSlice } from "./apiSlice";
 
+const base_api_url = 'employe'
+
 export const employeApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         getEmployeList: builder.query({
-            query: () => 'Employer'
+            query: () => ({
+                url: `${base_api_url}/all/`,
+                methode: 'GET'
+            })
         }),
         getEmployeDetail: builder.query({
-            query: (id) => `Employer/${id}`
+            query: (id) => ({
+                url: `${base_api_url}/detail/${id}/`,
+                methode: 'GET'
+            })
         }),
         newEmployee: builder.mutation({
             query: payload => ({
-                url: 'Employer',
+                url: `${base_api_url}/new/`,
                 method: 'POST',
                 body: payload
             })
         }),
         editEmployee: builder.mutation({
             query: payload => ({
-                url: `Employer/${payload.id}`,
+                url: `${base_api_url}/update/${payload.id}/`,
                 method: 'PUT',
-                body: payload 
+                body: payload
             })
         }),
         deleteEmployee: builder.mutation({
             query: id => ({
-                url: `Employer/${id}`,
+                url: `${base_api_url}/delete/${id}/`,
                 method: 'DELETE'
             })
         })

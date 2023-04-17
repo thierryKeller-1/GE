@@ -1,7 +1,7 @@
 import './Sidebar.css'
 import React from 'react'
 import { FaBars, FaTachometerAlt, FaUsers, FaCog, FaUserCircle } from 'react-icons/fa'
-import logo from '../../images/logo.jpg'
+import logo from '../../images/logo.png'
 import { Link } from 'react-router-dom'
 
 const Sidebar = ({ active }) => {
@@ -23,11 +23,11 @@ const Sidebar = ({ active }) => {
         </Link>
         <Link to={'/employee'} className={active === 'employee' ? "menu-item active" : "menu-item"}>
           <FaUsers className='left-icon' />
-          <span>Employées</span>
+          <span>Employes</span>
         </Link>
         <div className={active === 'settings' ? "menu-item active" : "menu-item"}>
           <FaCog className='left-icon' />
-          <span>Parametres</span>
+          <span>Settings</span>
         </div>
         <div className={active === 'profile' ? "menu-item active" : "menu-item"}>
           <FaUserCircle className='left-icon' />
